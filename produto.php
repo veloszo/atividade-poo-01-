@@ -1,9 +1,45 @@
 <?php
 
     class produto {
-        public $descricao;
-        public $estoque;
-        public $preco;
+        private $descricao;
+        private $estoque;
+        private $preco;
+        
+        
+        public function __construct($descricao, $estoqueInicial)
+        {
+            $this->descricao = $descricao;
+            $this-> estoque = $estoqueInicial;
+        }
+        
+        
+        //**importante - com o constructor vc pode usar ou nao o SET, porem o GET ainda é importante se usado.
+        public function getDescricao()
+        {
+            return $this->descricao;
+        }
+        
+        public function setDescricao()
+        {
+            $this->descricao = $descricao;
+        }
+        
+        public function getPreco() 
+        {
+            return $this->preco;
+        }
+        
+        public function setPreco()
+        {
+            $this->preco;
+        }
+        
+        public function getEstoque()
+        {
+            return $this->$estoque;
+        }
+        
+        //---------------------
    
         public function aumentarEstoque($valor) {
             
@@ -35,8 +71,9 @@
         } 
         
     }
-
-    $produto1 = new produto;
+    
+    //instaciamento de classe a produto
+    $produto1 = new produto("produto", 0);
     $produto1->descricao = "chocolate";
     $produto1->estoque = 20;
     $produto1->preco = 2;
@@ -48,7 +85,7 @@
     echo "<br><br>";
     echo "<b>Alteraçôes</b><br><i>Atividade-02</i>:<br><br>";
 
-    $produto1->aumentarEstoque("nao");
+    $produto1->aumentarEstoque(20);
     $produto1->diminuirEstoque(5);
     $produto1->reajustarPreco(50);
     
